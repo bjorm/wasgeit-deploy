@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  backend:
+    image: wasgeit/backend
+    hostname: backend
+    networks:
+      - wasgeit
+    volumes:
+      - ./db:/wasgeit/db
+  frontend:
+    image: wasgeit/frontend
+    depends_on:
+      - backend
+    networks:
+      - wasgeit
+    ports:
+      - 80:80
+
+networks:
+  wasgeit:
