@@ -1,12 +1,16 @@
 version: '3.3'
 services:
-  backend:
-    image: wasgeit/backend
+  crawler:
+    image: wasgeit/crawler
+    volumes:
+    - ./db:/wasgeit/db
+  server:
+    image: wasgeit/server
     hostname: backend
     networks:
       - wasgeit
     volumes:
-      - ./db:/wasgeit/db
+    - ./db:/wasgeit/db
   frontend:
     image: wasgeit/frontend
     depends_on:
