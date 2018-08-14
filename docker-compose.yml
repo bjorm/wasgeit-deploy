@@ -6,22 +6,27 @@ services:
     - ./db:/wasgeit/db
   server:
     image: wasgeit/server
+    user: 1000:1000
     hostname: backend
     networks:
-      - wasgeit
+    - wasgeit
     volumes:
-    - ./db:/wasgeit/db
+    - type: bind
+      source: ./db
+      target: /wasgeit/db
   frontend:
     image: wasgeit/frontend
+    command: "nginx -g 'daemon off;'"
     depends_on:
-      - backend
+    - backend
     networks:
-      - wasgeit
+    - wasgeit
     ports:
-      - 80:80
-      - 443:443
+    - 80:80
+    - 443:443
     volumes:
-      - /etc/letsencrypt:/etc/letsencrypt:ro
+    - /etc/letsencrypt:/etc/letsencrypt:ro
+    - /var/log/nginx/:/var/log/nginx
 
 networks:
   wasgeit:
