@@ -3,7 +3,9 @@ services:
   crawler:
     image: wasgeit/crawler
     volumes:
-    - ./db:/wasgeit/db
+    - type: bind
+      source: ./db
+      target: /wasgeit/db
   server:
     image: wasgeit/server
     user: 1000:1000
