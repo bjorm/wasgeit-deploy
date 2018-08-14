@@ -10,7 +10,6 @@ services:
   server:
     image: wasgeit/server
     user: 1000:1000
-    hostname: backend
     networks:
     - wasgeit
     volumes:
