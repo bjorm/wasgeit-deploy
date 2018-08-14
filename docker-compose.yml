@@ -18,7 +18,7 @@ services:
     image: wasgeit/frontend
     command: "nginx -g 'daemon off;'"
     depends_on:
-    - backend
+    - server
     networks:
     - wasgeit
     ports:
