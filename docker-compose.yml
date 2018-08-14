@@ -2,6 +2,7 @@ version: '3.3'
 services:
   crawler:
     image: wasgeit/crawler
+    user: 1000:1000
     volumes:
     - type: bind
       source: ./db
