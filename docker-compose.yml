@@ -14,11 +14,15 @@ services:
     - wasgeit
     volumes:
     - type: bind
-      source: ./db
+      source: ./dbª
       target: /wasgeit/db
   frontend:
     image: wasgeit/frontend
     command: "nginx -g 'daemon off;'"
+    environment:
+      - VIRTUAL_HOST=wasgeit.ch,www.wasgeit.ch
+      - VIRTUAL_PROTO=https
+      - VIRTUAL_PORT=443
     depends_on:
     - server
     networks:
