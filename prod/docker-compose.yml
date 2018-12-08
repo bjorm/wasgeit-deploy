@@ -23,6 +23,7 @@ services:
       - "80"
     environment:
       - VIRTUAL_HOST=wasgeit.ch,www.wasgeit.ch
+      - CERT_NAME=cert
     depends_on:
     - server
     networks:
