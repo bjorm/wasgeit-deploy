@@ -9,3 +9,11 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - /etc/letsencrypt:/etc/letsencrypt:ro
+    networks:
+      - demo_wasgeit
+      - prod_wasgeit
+networks:
+  demo_wasgeit:
+    external: yes
+  prod_wasgeit:
+    external: yes
