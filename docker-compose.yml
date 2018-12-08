@@ -14,7 +14,7 @@ services:
     - wasgeit
     volumes:
     - type: bind
-      source: ./dbª
+      source: ./db
       target: /wasgeit/db
   frontend:
     image: wasgeit/frontend
@@ -23,6 +23,7 @@ services:
       - VIRTUAL_HOST=wasgeit.ch,www.wasgeit.ch
       - VIRTUAL_PROTO=https
       - VIRTUAL_PORT=443
+      - ENABLE_IPV6=true
     depends_on:
     - server
     networks:
@@ -31,7 +32,6 @@ services:
     - 80:80
     - 443:443
     volumes:
-    - /etc/letsencrypt:/etc/letsencrypt:ro
     - /var/log/nginx/:/var/log/nginx
 
 networks:
