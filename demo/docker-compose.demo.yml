@@ -3,4 +3,5 @@ services:
   frontend:
     environment:
       - VIRTUAL_HOST=demo.wasgeit.ch
+  crawler:
 

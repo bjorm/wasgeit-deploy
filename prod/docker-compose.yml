@@ -21,8 +21,6 @@ services:
     command: "nginx -g 'daemon off;'"
     environment:
       - VIRTUAL_HOST=wasgeit.ch,www.wasgeit.ch
-      - VIRTUAL_PROTO=https
-      - VIRTUAL_PORT=443
       - ENABLE_IPV6=true
     depends_on:
     - server
