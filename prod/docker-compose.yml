@@ -7,6 +7,9 @@ services:
     - type: bind
       source: ./db
       target: /wasgeit/db
+    command: '--chromium-url http://chromium:9222'
+    networks:
+    - wasgeit
   server:
     image: wasgeit/server
     user: 1000:1000
@@ -17,7 +20,7 @@ services:
       source: ./db
       target: /wasgeit/db
   frontend:
-    image: wasgeit-frontend:proxy
+    image: wasgeit-frontend:react
     command: "nginx -g 'daemon off;'"
     expose:
       - "80"

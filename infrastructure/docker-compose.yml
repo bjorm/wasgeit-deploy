@@ -12,6 +12,18 @@ services:
     networks:
       - demo_wasgeit
       - prod_wasgeit
+  headless-chromium:
+    image: chromedp/headless-shell:latest
+    ports:
+      - "9222:9222"
+    networks: 
+      demo_wasgeit:
+        aliases: 
+          - chromium
+      prod_wasgeit:
+        aliases:
+          - chromium
+    command: --disable-gpu
 networks:
   demo_wasgeit:
     external: yes
