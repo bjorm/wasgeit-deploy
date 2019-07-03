@@ -7,7 +7,6 @@ services:
     - type: bind
       source: ./db
       target: /wasgeit/db
-    command: '--chromium-url http://chromium:9222'
     networks:
     - wasgeit
   server:
