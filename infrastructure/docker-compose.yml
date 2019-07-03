@@ -14,8 +14,6 @@ services:
       - prod_wasgeit
   headless-chromium:
     image: chromedp/headless-shell:latest
-    ports:
-      - "9222:9222"
     networks: 
       demo_wasgeit:
         aliases: 
