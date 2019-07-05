@@ -13,7 +13,11 @@ services:
       - demo_wasgeit
       - prod_wasgeit
   headless-chromium:
-    image: chromedp/headless-shell:latest
+    image: chromedp/headless-shell:77.0.3841.0
+    user: nobody
+    security_opt: 
+      # courtesy of https://github.com/jessfraz/dotfiles/blob/master/etc/docker/seccomp/chrome.json
+      - seccomp=chrome-seccomp-profile.json
     networks: 
       demo_wasgeit:
         aliases: 
@@ -21,7 +25,12 @@ services:
       prod_wasgeit:
         aliases:
           - chromium
-    command: --disable-gpu
+    entrypoint: /headless-shell/headless-shell
+    command:
+     - --remote-debugging-address=0.0.0.0 
+     - --remote-debugging-port=9222 
+     - --disable-gpu 
+     - --headless
 networks:
   demo_wasgeit:
     external: yes
