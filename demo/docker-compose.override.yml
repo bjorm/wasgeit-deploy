@@ -1,6 +1,8 @@
 version: '3.3'
 services:
   frontend:
-    image: wasgeit-frontend:react
-    environment:
-      - VIRTUAL_HOST=demo.wasgeit.ch
+    image: wasgeit/frontend:${DEMO_TAG}
+  server:
+    image: wasgeit/server:${DEMO_TAG}
+  crawler:
+    image: wasgeit/crawler:${DEMO_TAG}
