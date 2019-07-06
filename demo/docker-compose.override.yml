@@ -1,8 +1,14 @@
 version: '3.3'
 services:
   frontend:
-    image: wasgeit/frontend:${DEMO_TAG}
+    env_file:
+      - demo.env
+    image: wasgeit/frontend:${TAG_FRONTEND}
   server:
-    image: wasgeit/server:${DEMO_TAG}
+    image: wasgeit/server:${TAG_SERVER}
+    env_file:
+      - demo.env
   crawler:
-    image: wasgeit/crawler:${DEMO_TAG}
+    image: wasgeit/crawler:${TAG_CRAWLER}
+    env_file:
+      - demo.env
