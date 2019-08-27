@@ -12,6 +12,7 @@ services:
     networks:
       - demo_wasgeit
       - prod_wasgeit
+      - zuweiser_zuweiser
   headless-chromium:
     image: chromedp/headless-shell:77.0.3841.0
     user: nobody
