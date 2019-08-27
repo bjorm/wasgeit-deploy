@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  frontend:
+    image: zuweiser:master
+    command: "nginx -g 'daemon off;'"
+    networks:
+      - zuweiser
+    volumes:
+      - /var/log/nginx/:/var/log/nginx
+
+networks:
+  zuweiser:

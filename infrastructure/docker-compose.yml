@@ -36,3 +36,5 @@ networks:
     external: yes
   prod_wasgeit:
     external: yes
+  zuweiser_zuweiser:
+    external: yes
